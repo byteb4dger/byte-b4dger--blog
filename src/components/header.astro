@@ -1,0 +1,20 @@
+---
+import DarkModeToggle from './darkModeToggle.astro';
+import Author from './author.astro';
+import Title from './title.astro';
+
+const {} = Astro.props;
+---
+
+<div class='flex items-center pb-10'>
+  <div class='basis-1/2'>
+    <Title title='{skill issue}' />
+  </div>
+
+  <div class='basis-1/2 flex justify-end items-center'>
+    <div class='flex items-center basis-1/2'>
+      <div class='ml-4'><DarkModeToggle /></div>
+      <div class='pl-4'><Author author='byte_b4dger' /></div>
+    </div>
+  </div>
+</div>

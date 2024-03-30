@@ -1,0 +1,53 @@
+---
+import BlogLayout from '../layouts/blogLayout.astro';
+import '../styles/markdown.css';
+import type { Frontmatter } from '../types/types';
+import type { MarkdownInstance } from 'astro';
+import '@fontsource/lato/900.css';
+
+export async function getStaticPaths() {
+  const posts = (await Astro.glob(
+    '../content/posts/**/*.mdx'
+  )) as MarkdownInstance<Frontmatter>[];
+
+  return posts.map((post) => {
+    return {
+      params: {
+        slug: post.frontmatter.href,
+      },
+      props: {
+        post,
+      },
+    };
+  });
+}
+
+const { Content, frontmatter } = Astro.props.post;
+---
+
+<BlogLayout
+  ><article>
+    <h1 class='text-4xl text-pink-500 dark:text-pink-300 font-black'>
+      {frontmatter.title}
+    </h1>
+    <p class='mb-6 mt-2 text-[13px] text-gray-700 dark:text-gray-300'>
+      {
+        new Date(frontmatter.date).toLocaleDateString('cn', {
+          day: '2-digit',
+          month: '2-digit',
+          year: 'numeric',
+        })
+      }
+    </p>
+
+    <div class='markdown mt-10'>
+      <Content />
+    </div>
+  </article></BlogLayout
+>
+
+<style>
+  h1 {
+    font-family: 'Lato', sans-serif;
+  }
+</style>

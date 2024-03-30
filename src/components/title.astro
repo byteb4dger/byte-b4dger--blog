@@ -1,0 +1,22 @@
+---
+import '@fontsource/lato/900.css';
+import Link from './link.astro';
+
+type Props = {
+  title: string;
+};
+
+const { title } = Astro.props;
+---
+
+<a href='/'>
+  <div class='text-2xl font-black tracking-wider md:text-3xl'>
+    {title}
+  </div>
+</a>
+
+<style>
+  div {
+    font-family: 'Lato', sans-serif;
+  }
+</style>

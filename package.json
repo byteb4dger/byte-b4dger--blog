@@ -1,0 +1,30 @@
+{
+  "name": "byte-b4dger--blog",
+  "type": "module",
+  "version": "0.0.1",
+  "scripts": {
+    "dev": "astro dev",
+    "start": "astro dev",
+    "build": "astro check && astro build",
+    "preview": "astro preview",
+    "astro": "astro"
+  },
+  "dependencies": {
+    "@astrojs/check": "^0.5.10",
+    "@astrojs/mdx": "^2.2.2",
+    "@astrojs/react": "^3.1.0",
+    "@astrojs/tailwind": "^5.1.0",
+    "@fontsource/fredoka-one": "^5.0.5",
+    "@fontsource/lato": "^5.0.20",
+    "@types/react": "^18.2.73",
+    "@types/react-dom": "^18.2.23",
+    "astro": "^4.5.10",
+    "prettier-plugin-tailwindcss": "^0.5.13",
+    "react": "^18.2.0",
+    "react-dom": "^18.2.0",
+    "react-icons": "^5.0.1",
+    "tailwindcss": "^3.4.3",
+    "tailwindcss-animated": "^1.0.1",
+    "typescript": "^5.4.3"
+  }
+}

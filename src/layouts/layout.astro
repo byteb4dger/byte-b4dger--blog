@@ -1,0 +1,44 @@
+---
+import { ViewTransitions } from 'astro:transitions';
+import Header from '../components/header.astro';
+---
+
+<!doctype html>
+<html lang='en'>
+  <head>
+    <meta charset='utf-8' />
+    <link rel='icon' type='image/svg+xml' href='/favicon.svg' />
+    <meta name='viewport' content='width=device-width' />
+    <meta name='generator' content={Astro.generator} />
+    <ViewTransitions />
+    <title>byte_b4dger blog</title>
+  </head>
+  <body
+    class='mx-auto scroll-smooth overflow-x-hidden font-mono max-w-2xl px-10 py-12 bg-slate-100 text-slate-900 dark:text-slate-100 dark:bg-zinc-800 box-border'
+  >
+    <Header />
+    <slot>
+      <script is:inline>
+        const theme = (() => {
+          if (
+            typeof localStorage !== 'undefined' &&
+            localStorage.getItem('theme')
+          ) {
+            return localStorage.getItem('theme');
+          }
+          if (window.matchMedia('(prefers-color-scheme: dark)').matches) {
+            return 'dark';
+          }
+          return 'light';
+        })();
+
+        if (theme === 'light') {
+          document.documentElement.classList.remove('dark');
+        } else {
+          document.documentElement.classList.add('dark');
+        }
+        window.localStorage.setItem('theme', theme);
+      </script>
+    </slot>
+  </body>
+</html>

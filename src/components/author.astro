@@ -1,0 +1,15 @@
+---
+type Props = {
+  author: string;
+};
+
+const { author } = Astro.props;
+---
+
+<a href='https://github.com/byteb4dger'
+  ><div class='hidden md:flex text-xs justify-center items-center'>
+    by {author}
+  </div></a
+>
+
+<style></style>
