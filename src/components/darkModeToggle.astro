@@ -17,7 +17,7 @@
 >
 
 <script>
-  const darkButton = document.getElementById('btn');
+  const darkButton = document.getElementById('btn') as HTMLButtonElement;
   //Checks for localStorage of a theme, if so render the correct class and icon
   function checkTheme() {
     const currentTheme = localStorage.getItem('theme');
@@ -44,7 +44,6 @@
       : window.localStorage.setItem('theme', 'dark');
     checkTheme();
   });
-
   //VIEWTRANSITION event listener that enables the checkTheme fuction to run on page transition
   document.addEventListener('astro:after-swap', checkTheme);
 </script>
